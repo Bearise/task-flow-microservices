@@ -26,6 +26,17 @@ public class TareaServiceImpl implements TareaService{
 		
 		return tareas;
 	}
+
+	@Override
+	public List<Tarea> deleteTareaByTipoId(int id) {
+		List<Tarea> tareas = tareaRepository.findAllByTipo_id(id);
+		
+		for (Tarea t:tareas) {
+			tareaRepository.delete(t);
+		}
+		
+		return tareas;
+	}
 	
 	
 
